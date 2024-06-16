@@ -1,5 +1,6 @@
 <?php
 
+use DefStudio\Telegraph\Models\TelegraphBot;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
 
@@ -17,3 +18,13 @@ use Illuminate\Support\Facades\Artisan;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->purpose('Display an inspiring quote');
+
+Artisan::command('registerCommands', function () {
+    $bot = TelegraphBot::find(1);
+    $bot->registerCommands(['start' => 'Запустить бота'])->send();
+});
+
+Artisan::command('unregisterCommands', function () {
+    $bot = TelegraphBot::find(1);
+    $bot->unregisterCommands(['start' => 'Command unregistered'])->send();
+});

@@ -19,6 +19,6 @@ Route::get('/', function () {
 });
 
 
-Route::post('/callback', [PaymentController::class, 'callback']);
+Route::post('/webhook/crypto', [PaymentController::class, 'responseCrypto']);
 
 Route::post('/callbackLava', [PaymentController::class, 'callbackLava']);

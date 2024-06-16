@@ -76,7 +76,7 @@ class Handler extends WebhookHandler {
         }
 
         $payment = new PaymentController();
-        $paymentUrl = $payment->paymentLink($cost, $this->chat->chat_id);
+        $paymentUrl = $payment->paymentLink($cost, $this->chat->chat_id, $period);
 
         $this->chat->message(__('type'))
             ->keyboard(

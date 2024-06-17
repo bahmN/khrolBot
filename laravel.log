@@ -1,9 +1,299 @@
-[2024-06-16 16:11:48] local.INFO: []  
-[2024-06-16 16:41:06] local.ERROR: Undefined array key "widget_url" {"exception":"[object] (ErrorException(code: 0): Undefined array key \"widget_url\" at /var/www/www-root/data/www/sevenme.es/app/Http/Controllers/PaymentController.php:36)
+[2024-06-17 18:06:00] local.INFO: array (
+  'contract_map' => 
+  array (
+    'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t' => true,
+    'TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM' => false,
+    'TQVYB7ssuV1qVZum3b8Ph4qoms8GHue61A' => false,
+  ),
+  'contractRet' => 'SUCCESS',
+  'data' => '',
+  'contractInfo' => 
+  array (
+    'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t' => 
+    array (
+      'isToken' => true,
+      'tag1' => 'USDT Token',
+      'tag1Url' => 'https://tron.network/usdt',
+      'name' => 'TetherToken',
+      'risk' => false,
+      'vip' => true,
+    ),
+  ),
+  'contractType' => 31,
+  'event_count' => 1,
+  'project' => '',
+  'toAddress' => 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t',
+  'confirmed' => true,
+  'trc20TransferInfo' => 
+  array (
+    0 => 
+    array (
+      'icon_url' => 'https://static.tronscan.org/production/logo/usdtlogo.png',
+      'symbol' => 'USDT',
+      'level' => '2',
+      'to_address' => 'TQVYB7ssuV1qVZum3b8Ph4qoms8GHue61A',
+      'contract_address' => 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t',
+      'type' => 'Transfer',
+      'decimals' => 6,
+      'name' => 'Tether USD',
+      'vip' => true,
+      'tokenType' => 'trc20',
+      'from_address' => 'TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM',
+      'amount_str' => '46662914',
+      'status' => 0,
+    ),
+  ),
+  'transfersAllList' => 
+  array (
+    0 => 
+    array (
+      'icon_url' => 'https://static.tronscan.org/production/logo/usdtlogo.png',
+      'symbol' => 'USDT',
+      'level' => '2',
+      'to_address' => 'TQVYB7ssuV1qVZum3b8Ph4qoms8GHue61A',
+      'contract_address' => 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t',
+      'type' => 'Transfer',
+      'decimals' => 6,
+      'name' => 'Tether USD',
+      'vip' => true,
+      'tokenType' => 'trc20',
+      'from_address' => 'TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM',
+      'amount_str' => '46662914',
+      'status' => 0,
+    ),
+  ),
+  'block' => 62667098,
+  'triggerContractType' => 500,
+  'riskTransaction' => false,
+  'timestamp' => 1718645508000,
+  'info' => 
+  array (
+  ),
+  'normalAddressInfo' => 
+  array (
+    'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t' => 
+    array (
+      'risk' => false,
+    ),
+    'TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM' => 
+    array (
+      'risk' => false,
+    ),
+    'TQVYB7ssuV1qVZum3b8Ph4qoms8GHue61A' => 
+    array (
+      'risk' => false,
+    ),
+  ),
+  'cost' => 
+  array (
+    'net_fee_cost' => 1000,
+    'date_created' => 1718645508,
+    'fee' => 0,
+    'energy_fee_cost' => 420,
+    'net_usage' => 345,
+    'multi_sign_fee' => 0,
+    'net_fee' => 0,
+    'energy_penalty_total' => 17245,
+    'energy_usage' => 0,
+    'energy_fee' => 13395900,
+    'energy_usage_total' => 31895,
+    'memoFee' => 0,
+    'origin_energy_usage' => 0,
+  ),
+  'noteLevel' => 1,
+  'addressTag' => 
+  array (
+  ),
+  'revert' => false,
+  'confirmations' => 682,
+  'fee_limit' => 40000000,
+  'tokenTransferInfo' => 
+  array (
+    'icon_url' => 'https://static.tronscan.org/production/logo/usdtlogo.png',
+    'symbol' => 'USDT',
+    'level' => '2',
+    'to_address' => 'TQVYB7ssuV1qVZum3b8Ph4qoms8GHue61A',
+    'contract_address' => 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t',
+    'type' => 'Transfer',
+    'decimals' => 6,
+    'name' => 'Tether USD',
+    'vip' => true,
+    'tokenType' => 'trc20',
+    'from_address' => 'TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM',
+    'amount_str' => '46662914',
+    'status' => 0,
+  ),
+  'contract_type' => 'trc20',
+  'trigger_info' => 
+  array (
+    'method' => 'transfer(address _to,uint256 _value)',
+    'parameter' => 
+    array (
+      '_value' => '46662914',
+      '_to' => 'TQVYB7ssuV1qVZum3b8Ph4qoms8GHue61A',
+    ),
+    'methodId' => 'a9059cbb',
+    'contract_address' => 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t',
+    'call_value' => 0,
+  ),
+  'signature_addresses' => 
+  array (
+  ),
+  'ownerAddress' => 'TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM',
+  'srConfirmList' => 
+  array (
+    0 => 
+    array (
+      'address' => 'TNeEwWHXLLUgEtfzTnYN8wtVenGxuMzZCE',
+      'name' => 'OKCoinJapan',
+      'block' => 62667098,
+      'url' => 'https://okcoin.jp/',
+    ),
+    1 => 
+    array (
+      'address' => 'TTxrh32VJveqiYRwbLEX2wLTMFCfbpAUQj',
+      'name' => 'OKX Earn',
+      'block' => 62667099,
+      'url' => 'https://www.okx.com/earn/home',
+    ),
+    2 => 
+    array (
+      'address' => 'TTcYhypP8m4phDhN6oRexz2174zAerjEWP',
+      'name' => 'CryptoGuyInZA',
+      'block' => 62667100,
+      'url' => 'https://www.cryptoguyinza.co.za/',
+    ),
+    3 => 
+    array (
+      'address' => 'TCEo1hMAdaJrQmvnGTCcGT2LqrGU4N7Jqf',
+      'name' => 'TRONScan',
+      'block' => 62667101,
+      'url' => 'https://tronscan.org',
+    ),
+    4 => 
+    array (
+      'address' => 'TBsyKdNsCKNXLgvneeUJ3rbXgWSgk6paTM',
+      'name' => 'StakedTron',
+      'block' => 62667102,
+      'url' => 'https://staked.us',
+    ),
+    5 => 
+    array (
+      'address' => 'TQhuVjZtmp6k4fPmGZLr4wyXdziCVSPkEX',
+      'name' => 'Google Cloud',
+      'block' => 62667103,
+      'url' => 'https://cloud.google.com/',
+    ),
+    6 => 
+    array (
+      'address' => 'TLyqzVGLV1srkB7dToTAEqgDSfPtXRJZYH',
+      'name' => 'Binance Staking',
+      'block' => 62667104,
+      'url' => 'https://www.binance.com/en/staking',
+    ),
+    7 => 
+    array (
+      'address' => 'TCZvvbn4SCVyNhCAt1L8Kp1qk5rtMiKdBB',
+      'name' => 'Crypto Labs',
+      'block' => 62667105,
+      'url' => 'CryptoLabs',
+    ),
+    8 => 
+    array (
+      'address' => 'TAAdjpNYfeJ2edcETNpad1QpQWJfyBdB9V',
+      'name' => 'Ant Investment Group',
+      'block' => 62667106,
+      'url' => 'antinvestmentgroup',
+    ),
+    9 => 
+    array (
+      'address' => 'TGyrSc9ZmTdbYziuk1SKEmdtCdETafewJ9',
+      'name' => 'Luganodes',
+      'block' => 62667107,
+      'url' => 'https://luganodes.com',
+    ),
+    10 => 
+    array (
+      'address' => 'TMafrJCuNoYq3mg9dDThfg7c9VP6enZN6j',
+      'name' => 'metaverse home',
+      'block' => 62667108,
+      'url' => 'metaversehome',
+    ),
+    11 => 
+    array (
+      'address' => 'TC6qGw3d6h25gjcM64KLuZn1cznNi5NR6t',
+      'name' => 'Crypto Innovation Fund',
+      'block' => 62667109,
+      'url' => 'cryptoinnovationfund',
+    ),
+    12 => 
+    array (
+      'address' => 'TJvaAeFb8Lykt9RQcVyyTFN2iDvGMuyD4M',
+      'name' => 'Poloniex',
+      'block' => 62667110,
+      'url' => 'https://poloniex.com/',
+    ),
+    13 => 
+    array (
+      'address' => 'TQ4bh4nQknQp33vuf1mUAKu5M5TWW8cTAD',
+      'name' => 'Intelligence Quant',
+      'block' => 62667111,
+      'url' => 'IntelligenceQuant',
+    ),
+    14 => 
+    array (
+      'address' => 'TNaJADoq1u2atryP1ZzwvmEE4ZBELXfMqw',
+      'name' => 'callmeSR',
+      'block' => 62667112,
+      'url' => 'http://zempty.peiwo.cn/',
+    ),
+    15 => 
+    array (
+      'address' => 'TN2W4cc7a4dsYyTLiLMWa9m7jVpdLjGvYs',
+      'name' => 'Huobi_Wallet',
+      'block' => 62667113,
+      'url' => 'https://www.huobiwallet.com/',
+    ),
+    16 => 
+    array (
+      'address' => 'TTW663tQYJTTCtHh6DWKAfexRhPMf2DxQ1',
+      'name' => 'TRONALLIANCE',
+      'block' => 62667114,
+      'url' => 'http://tronalliance.org',
+    ),
+    17 => 
+    array (
+      'address' => 'TDpt9adA6QidL1B1sy3D8NC717C6L5JxFo',
+      'name' => 'Chain Cloud',
+      'block' => 62667115,
+      'url' => 'chaincloud',
+    ),
+    18 => 
+    array (
+      'address' => 'TQopP5GM68QoqLzpz8YReDfSoCMkvwcZYd',
+      'name' => 'cryptoAI',
+      'block' => 62667116,
+      'url' => 'https://cryptoai.com',
+    ),
+  ),
+  'hash' => 'a0485c772b1f0b987b33be24f6e854b0161fe46e34ffb9da2cffeebb3606e9ad',
+  'contractData' => 
+  array (
+    'data' => 'a9059cbb0000000000000000000000009f4e3eb9ae86450bd2ec4be7c88004d215b47b090000000000000000000000000000000000000000000000000000000002c80502',
+    'owner_address' => 'TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM',
+    'contract_address' => 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t',
+  ),
+  'internal_transactions' => 
+  array (
+  ),
+)  
+[2024-06-17 18:06:22] local.INFO: "{\"contract_map\":{\"TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t\":true,\"TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM\":false,\"TQVYB7ssuV1qVZum3b8Ph4qoms8GHue61A\":false},\"contractRet\":\"SUCCESS\",\"data\":\"\",\"contractInfo\":{\"TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t\":{\"isToken\":true,\"tag1\":\"USDT Token\",\"tag1Url\":\"https:\/\/tron.network\/usdt\",\"name\":\"TetherToken\",\"risk\":false,\"vip\":true}},\"contractType\":31,\"event_count\":1,\"project\":\"\",\"toAddress\":\"TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t\",\"confirmed\":true,\"trc20TransferInfo\":[{\"icon_url\":\"https:\/\/static.tronscan.org\/production\/logo\/usdtlogo.png\",\"symbol\":\"USDT\",\"level\":\"2\",\"to_address\":\"TQVYB7ssuV1qVZum3b8Ph4qoms8GHue61A\",\"contract_address\":\"TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t\",\"type\":\"Transfer\",\"decimals\":6,\"name\":\"Tether USD\",\"vip\":true,\"tokenType\":\"trc20\",\"from_address\":\"TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM\",\"amount_str\":\"46662914\",\"status\":0}],\"transfersAllList\":[{\"icon_url\":\"https:\/\/static.tronscan.org\/production\/logo\/usdtlogo.png\",\"symbol\":\"USDT\",\"level\":\"2\",\"to_address\":\"TQVYB7ssuV1qVZum3b8Ph4qoms8GHue61A\",\"contract_address\":\"TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t\",\"type\":\"Transfer\",\"decimals\":6,\"name\":\"Tether USD\",\"vip\":true,\"tokenType\":\"trc20\",\"from_address\":\"TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM\",\"amount_str\":\"46662914\",\"status\":0}],\"block\":62667098,\"triggerContractType\":500,\"riskTransaction\":false,\"timestamp\":1718645508000,\"info\":{},\"normalAddressInfo\":{\"TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t\":{\"risk\":false},\"TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM\":{\"risk\":false},\"TQVYB7ssuV1qVZum3b8Ph4qoms8GHue61A\":{\"risk\":false}},\"cost\":{\"net_fee_cost\":1000,\"date_created\":1718645508,\"fee\":0,\"energy_fee_cost\":420,\"net_usage\":345,\"multi_sign_fee\":0,\"net_fee\":0,\"energy_penalty_total\":17245,\"energy_usage\":0,\"energy_fee\":13395900,\"energy_usage_total\":31895,\"memoFee\":0,\"origin_energy_usage\":0},\"noteLevel\":1,\"addressTag\":{},\"revert\":false,\"confirmations\":689,\"fee_limit\":40000000,\"tokenTransferInfo\":{\"icon_url\":\"https:\/\/static.tronscan.org\/production\/logo\/usdtlogo.png\",\"symbol\":\"USDT\",\"level\":\"2\",\"to_address\":\"TQVYB7ssuV1qVZum3b8Ph4qoms8GHue61A\",\"contract_address\":\"TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t\",\"type\":\"Transfer\",\"decimals\":6,\"name\":\"Tether USD\",\"vip\":true,\"tokenType\":\"trc20\",\"from_address\":\"TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM\",\"amount_str\":\"46662914\",\"status\":0},\"contract_type\":\"trc20\",\"trigger_info\":{\"method\":\"transfer(address _to,uint256 _value)\",\"parameter\":{\"_value\":\"46662914\",\"_to\":\"TQVYB7ssuV1qVZum3b8Ph4qoms8GHue61A\"},\"methodId\":\"a9059cbb\",\"contract_address\":\"TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t\",\"call_value\":0},\"signature_addresses\":[],\"ownerAddress\":\"TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM\",\"srConfirmList\":[{\"address\":\"TNeEwWHXLLUgEtfzTnYN8wtVenGxuMzZCE\",\"name\":\"OKCoinJapan\",\"block\":62667098,\"url\":\"https:\/\/okcoin.jp\/\"},{\"address\":\"TTxrh32VJveqiYRwbLEX2wLTMFCfbpAUQj\",\"name\":\"OKX Earn\",\"block\":62667099,\"url\":\"https:\/\/www.okx.com\/earn\/home\"},{\"address\":\"TTcYhypP8m4phDhN6oRexz2174zAerjEWP\",\"name\":\"CryptoGuyInZA\",\"block\":62667100,\"url\":\"https:\/\/www.cryptoguyinza.co.za\/\"},{\"address\":\"TCEo1hMAdaJrQmvnGTCcGT2LqrGU4N7Jqf\",\"name\":\"TRONScan\",\"block\":62667101,\"url\":\"https:\/\/tronscan.org\"},{\"address\":\"TBsyKdNsCKNXLgvneeUJ3rbXgWSgk6paTM\",\"name\":\"StakedTron\",\"block\":62667102,\"url\":\"https:\/\/staked.us\"},{\"address\":\"TQhuVjZtmp6k4fPmGZLr4wyXdziCVSPkEX\",\"name\":\"Google Cloud\",\"block\":62667103,\"url\":\"https:\/\/cloud.google.com\/\"},{\"address\":\"TLyqzVGLV1srkB7dToTAEqgDSfPtXRJZYH\",\"name\":\"Binance Staking\",\"block\":62667104,\"url\":\"https:\/\/www.binance.com\/en\/staking\"},{\"address\":\"TCZvvbn4SCVyNhCAt1L8Kp1qk5rtMiKdBB\",\"name\":\"Crypto Labs\",\"block\":62667105,\"url\":\"CryptoLabs\"},{\"address\":\"TAAdjpNYfeJ2edcETNpad1QpQWJfyBdB9V\",\"name\":\"Ant Investment Group\",\"block\":62667106,\"url\":\"antinvestmentgroup\"},{\"address\":\"TGyrSc9ZmTdbYziuk1SKEmdtCdETafewJ9\",\"name\":\"Luganodes\",\"block\":62667107,\"url\":\"https:\/\/luganodes.com\"},{\"address\":\"TMafrJCuNoYq3mg9dDThfg7c9VP6enZN6j\",\"name\":\"metaverse home\",\"block\":62667108,\"url\":\"metaversehome\"},{\"address\":\"TC6qGw3d6h25gjcM64KLuZn1cznNi5NR6t\",\"name\":\"Crypto Innovation Fund\",\"block\":62667109,\"url\":\"cryptoinnovationfund\"},{\"address\":\"TJvaAeFb8Lykt9RQcVyyTFN2iDvGMuyD4M\",\"name\":\"Poloniex\",\"block\":62667110,\"url\":\"https:\/\/poloniex.com\/\"},{\"address\":\"TQ4bh4nQknQp33vuf1mUAKu5M5TWW8cTAD\",\"name\":\"Intelligence Quant\",\"block\":62667111,\"url\":\"IntelligenceQuant\"},{\"address\":\"TNaJADoq1u2atryP1ZzwvmEE4ZBELXfMqw\",\"name\":\"callmeSR\",\"block\":62667112,\"url\":\"http:\/\/zempty.peiwo.cn\/\"},{\"address\":\"TN2W4cc7a4dsYyTLiLMWa9m7jVpdLjGvYs\",\"name\":\"Huobi_Wallet\",\"block\":62667113,\"url\":\"https:\/\/www.huobiwallet.com\/\"},{\"address\":\"TTW663tQYJTTCtHh6DWKAfexRhPMf2DxQ1\",\"name\":\"TRONALLIANCE\",\"block\":62667114,\"url\":\"http:\/\/tronalliance.org\"},{\"address\":\"TDpt9adA6QidL1B1sy3D8NC717C6L5JxFo\",\"name\":\"Chain Cloud\",\"block\":62667115,\"url\":\"chaincloud\"},{\"address\":\"TQopP5GM68QoqLzpz8YReDfSoCMkvwcZYd\",\"name\":\"cryptoAI\",\"block\":62667116,\"url\":\"https:\/\/cryptoai.com\"}],\"hash\":\"a0485c772b1f0b987b33be24f6e854b0161fe46e34ffb9da2cffeebb3606e9ad\",\"contractData\":{\"data\":\"a9059cbb0000000000000000000000009f4e3eb9ae86450bd2ec4be7c88004d215b47b090000000000000000000000000000000000000000000000000000000002c80502\",\"owner_address\":\"TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM\",\"contract_address\":\"TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t\"},\"internal_transactions\":{}}\n"  
+[2024-06-17 18:07:06] local.INFO: "{\"contract_map\":{\"TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t\":true,\"TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM\":false,\"TQVYB7ssuV1qVZum3b8Ph4qoms8GHue61A\":false},\"contractRet\":\"SUCCESS\",\"data\":\"\",\"contractInfo\":{\"TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t\":{\"isToken\":true,\"tag1\":\"USDT Token\",\"tag1Url\":\"https:\/\/tron.network\/usdt\",\"name\":\"TetherToken\",\"risk\":false,\"vip\":true}},\"contractType\":31,\"event_count\":1,\"project\":\"\",\"toAddress\":\"TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t\",\"confirmed\":true,\"trc20TransferInfo\":[{\"icon_url\":\"https:\/\/static.tronscan.org\/production\/logo\/usdtlogo.png\",\"symbol\":\"USDT\",\"level\":\"2\",\"to_address\":\"TQVYB7ssuV1qVZum3b8Ph4qoms8GHue61A\",\"contract_address\":\"TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t\",\"type\":\"Transfer\",\"decimals\":6,\"name\":\"Tether USD\",\"vip\":true,\"tokenType\":\"trc20\",\"from_address\":\"TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM\",\"amount_str\":\"46662914\",\"status\":0}],\"transfersAllList\":[{\"icon_url\":\"https:\/\/static.tronscan.org\/production\/logo\/usdtlogo.png\",\"symbol\":\"USDT\",\"level\":\"2\",\"to_address\":\"TQVYB7ssuV1qVZum3b8Ph4qoms8GHue61A\",\"contract_address\":\"TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t\",\"type\":\"Transfer\",\"decimals\":6,\"name\":\"Tether USD\",\"vip\":true,\"tokenType\":\"trc20\",\"from_address\":\"TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM\",\"amount_str\":\"46662914\",\"status\":0}],\"block\":62667098,\"triggerContractType\":500,\"riskTransaction\":false,\"timestamp\":1718645508000,\"info\":{},\"normalAddressInfo\":{\"TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t\":{\"risk\":false},\"TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM\":{\"risk\":false},\"TQVYB7ssuV1qVZum3b8Ph4qoms8GHue61A\":{\"risk\":false}},\"cost\":{\"net_fee_cost\":1000,\"date_created\":1718645508,\"fee\":0,\"energy_fee_cost\":420,\"net_usage\":345,\"multi_sign_fee\":0,\"net_fee\":0,\"energy_penalty_total\":17245,\"energy_usage\":0,\"energy_fee\":13395900,\"energy_usage_total\":31895,\"memoFee\":0,\"origin_energy_usage\":0},\"noteLevel\":1,\"addressTag\":{},\"revert\":false,\"confirmations\":704,\"fee_limit\":40000000,\"tokenTransferInfo\":{\"icon_url\":\"https:\/\/static.tronscan.org\/production\/logo\/usdtlogo.png\",\"symbol\":\"USDT\",\"level\":\"2\",\"to_address\":\"TQVYB7ssuV1qVZum3b8Ph4qoms8GHue61A\",\"contract_address\":\"TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t\",\"type\":\"Transfer\",\"decimals\":6,\"name\":\"Tether USD\",\"vip\":true,\"tokenType\":\"trc20\",\"from_address\":\"TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM\",\"amount_str\":\"46662914\",\"status\":0},\"contract_type\":\"trc20\",\"trigger_info\":{\"method\":\"transfer(address _to,uint256 _value)\",\"parameter\":{\"_value\":\"46662914\",\"_to\":\"TQVYB7ssuV1qVZum3b8Ph4qoms8GHue61A\"},\"methodId\":\"a9059cbb\",\"contract_address\":\"TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t\",\"call_value\":0},\"signature_addresses\":[],\"ownerAddress\":\"TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM\",\"srConfirmList\":[{\"address\":\"TNeEwWHXLLUgEtfzTnYN8wtVenGxuMzZCE\",\"name\":\"OKCoinJapan\",\"block\":62667098,\"url\":\"https:\/\/okcoin.jp\/\"},{\"address\":\"TTxrh32VJveqiYRwbLEX2wLTMFCfbpAUQj\",\"name\":\"OKX Earn\",\"block\":62667099,\"url\":\"https:\/\/www.okx.com\/earn\/home\"},{\"address\":\"TTcYhypP8m4phDhN6oRexz2174zAerjEWP\",\"name\":\"CryptoGuyInZA\",\"block\":62667100,\"url\":\"https:\/\/www.cryptoguyinza.co.za\/\"},{\"address\":\"TCEo1hMAdaJrQmvnGTCcGT2LqrGU4N7Jqf\",\"name\":\"TRONScan\",\"block\":62667101,\"url\":\"https:\/\/tronscan.org\"},{\"address\":\"TBsyKdNsCKNXLgvneeUJ3rbXgWSgk6paTM\",\"name\":\"StakedTron\",\"block\":62667102,\"url\":\"https:\/\/staked.us\"},{\"address\":\"TQhuVjZtmp6k4fPmGZLr4wyXdziCVSPkEX\",\"name\":\"Google Cloud\",\"block\":62667103,\"url\":\"https:\/\/cloud.google.com\/\"},{\"address\":\"TLyqzVGLV1srkB7dToTAEqgDSfPtXRJZYH\",\"name\":\"Binance Staking\",\"block\":62667104,\"url\":\"https:\/\/www.binance.com\/en\/staking\"},{\"address\":\"TCZvvbn4SCVyNhCAt1L8Kp1qk5rtMiKdBB\",\"name\":\"Crypto Labs\",\"block\":62667105,\"url\":\"CryptoLabs\"},{\"address\":\"TAAdjpNYfeJ2edcETNpad1QpQWJfyBdB9V\",\"name\":\"Ant Investment Group\",\"block\":62667106,\"url\":\"antinvestmentgroup\"},{\"address\":\"TGyrSc9ZmTdbYziuk1SKEmdtCdETafewJ9\",\"name\":\"Luganodes\",\"block\":62667107,\"url\":\"https:\/\/luganodes.com\"},{\"address\":\"TMafrJCuNoYq3mg9dDThfg7c9VP6enZN6j\",\"name\":\"metaverse home\",\"block\":62667108,\"url\":\"metaversehome\"},{\"address\":\"TC6qGw3d6h25gjcM64KLuZn1cznNi5NR6t\",\"name\":\"Crypto Innovation Fund\",\"block\":62667109,\"url\":\"cryptoinnovationfund\"},{\"address\":\"TJvaAeFb8Lykt9RQcVyyTFN2iDvGMuyD4M\",\"name\":\"Poloniex\",\"block\":62667110,\"url\":\"https:\/\/poloniex.com\/\"},{\"address\":\"TQ4bh4nQknQp33vuf1mUAKu5M5TWW8cTAD\",\"name\":\"Intelligence Quant\",\"block\":62667111,\"url\":\"IntelligenceQuant\"},{\"address\":\"TNaJADoq1u2atryP1ZzwvmEE4ZBELXfMqw\",\"name\":\"callmeSR\",\"block\":62667112,\"url\":\"http:\/\/zempty.peiwo.cn\/\"},{\"address\":\"TN2W4cc7a4dsYyTLiLMWa9m7jVpdLjGvYs\",\"name\":\"Huobi_Wallet\",\"block\":62667113,\"url\":\"https:\/\/www.huobiwallet.com\/\"},{\"address\":\"TTW663tQYJTTCtHh6DWKAfexRhPMf2DxQ1\",\"name\":\"TRONALLIANCE\",\"block\":62667114,\"url\":\"http:\/\/tronalliance.org\"},{\"address\":\"TDpt9adA6QidL1B1sy3D8NC717C6L5JxFo\",\"name\":\"Chain Cloud\",\"block\":62667115,\"url\":\"chaincloud\"},{\"address\":\"TQopP5GM68QoqLzpz8YReDfSoCMkvwcZYd\",\"name\":\"cryptoAI\",\"block\":62667116,\"url\":\"https:\/\/cryptoai.com\"}],\"hash\":\"a0485c772b1f0b987b33be24f6e854b0161fe46e34ffb9da2cffeebb3606e9ad\",\"contractData\":{\"data\":\"a9059cbb0000000000000000000000009f4e3eb9ae86450bd2ec4be7c88004d215b47b090000000000000000000000000000000000000000000000000000000002c80502\",\"owner_address\":\"TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM\",\"contract_address\":\"TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t\"},\"internal_transactions\":{}}\n"  
+[2024-06-17 18:07:12] local.ERROR: Cannot access offset of type string on string {"exception":"[object] (TypeError(code: 0): Cannot access offset of type string on string at /var/www/www-root/data/www/sevenme.es/app/Http/Controllers/PaymentController.php:74)
 [stacktrace]
-#0 /var/www/www-root/data/www/sevenme.es/app/Http/Controllers/PaymentController.php(36): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
-#1 /var/www/www-root/data/www/sevenme.es/app/Telegram/Handler.php(80): App\\Http\\Controllers\\PaymentController->paymentLink()
-#2 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): App\\Telegram\\Handler->selectType()
+#0 /var/www/www-root/data/www/sevenme.es/app/Http/Controllers/PaymentController.php(35): App\\Http\\Controllers\\PaymentController->generateInviteLink()
+#1 /var/www/www-root/data/www/sevenme.es/app/Telegram/Handler.php(152): App\\Http\\Controllers\\PaymentController->payUSDT()
+#2 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): App\\Telegram\\Handler->payUSDT()
 #3 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Container/Util.php(40): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
 #4 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(93): Illuminate\\Container\\Util::unwrapIfClosure()
 #5 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod()
@@ -44,3 +334,469 @@
 #40 /var/www/www-root/data/www/sevenme.es/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle()
 #41 {main}
 "} 
+[2024-06-17 18:07:47] local.INFO: array (
+  'contract_map' => 
+  array (
+    'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t' => true,
+    'TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM' => false,
+    'TQVYB7ssuV1qVZum3b8Ph4qoms8GHue61A' => false,
+  ),
+  'contractRet' => 'SUCCESS',
+  'data' => '',
+  'contractInfo' => 
+  array (
+    'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t' => 
+    array (
+      'isToken' => true,
+      'tag1' => 'USDT Token',
+      'tag1Url' => 'https://tron.network/usdt',
+      'name' => 'TetherToken',
+      'risk' => false,
+      'vip' => true,
+    ),
+  ),
+  'contractType' => 31,
+  'event_count' => 1,
+  'project' => '',
+  'toAddress' => 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t',
+  'confirmed' => true,
+  'trc20TransferInfo' => 
+  array (
+    0 => 
+    array (
+      'icon_url' => 'https://static.tronscan.org/production/logo/usdtlogo.png',
+      'symbol' => 'USDT',
+      'level' => '2',
+      'to_address' => 'TQVYB7ssuV1qVZum3b8Ph4qoms8GHue61A',
+      'contract_address' => 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t',
+      'type' => 'Transfer',
+      'decimals' => 6,
+      'name' => 'Tether USD',
+      'vip' => true,
+      'tokenType' => 'trc20',
+      'from_address' => 'TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM',
+      'amount_str' => '46662914',
+      'status' => 0,
+    ),
+  ),
+  'transfersAllList' => 
+  array (
+    0 => 
+    array (
+      'icon_url' => 'https://static.tronscan.org/production/logo/usdtlogo.png',
+      'symbol' => 'USDT',
+      'level' => '2',
+      'to_address' => 'TQVYB7ssuV1qVZum3b8Ph4qoms8GHue61A',
+      'contract_address' => 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t',
+      'type' => 'Transfer',
+      'decimals' => 6,
+      'name' => 'Tether USD',
+      'vip' => true,
+      'tokenType' => 'trc20',
+      'from_address' => 'TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM',
+      'amount_str' => '46662914',
+      'status' => 0,
+    ),
+  ),
+  'block' => 62667098,
+  'triggerContractType' => 500,
+  'riskTransaction' => false,
+  'timestamp' => 1718645508000,
+  'info' => 
+  array (
+  ),
+  'normalAddressInfo' => 
+  array (
+    'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t' => 
+    array (
+      'risk' => false,
+    ),
+    'TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM' => 
+    array (
+      'risk' => false,
+    ),
+    'TQVYB7ssuV1qVZum3b8Ph4qoms8GHue61A' => 
+    array (
+      'risk' => false,
+    ),
+  ),
+  'cost' => 
+  array (
+    'net_fee_cost' => 1000,
+    'date_created' => 1718645508,
+    'fee' => 0,
+    'energy_fee_cost' => 420,
+    'net_usage' => 345,
+    'multi_sign_fee' => 0,
+    'net_fee' => 0,
+    'energy_penalty_total' => 17245,
+    'energy_usage' => 0,
+    'energy_fee' => 13395900,
+    'energy_usage_total' => 31895,
+    'memoFee' => 0,
+    'origin_energy_usage' => 0,
+  ),
+  'noteLevel' => 1,
+  'addressTag' => 
+  array (
+  ),
+  'revert' => false,
+  'confirmations' => 718,
+  'fee_limit' => 40000000,
+  'tokenTransferInfo' => 
+  array (
+    'icon_url' => 'https://static.tronscan.org/production/logo/usdtlogo.png',
+    'symbol' => 'USDT',
+    'level' => '2',
+    'to_address' => 'TQVYB7ssuV1qVZum3b8Ph4qoms8GHue61A',
+    'contract_address' => 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t',
+    'type' => 'Transfer',
+    'decimals' => 6,
+    'name' => 'Tether USD',
+    'vip' => true,
+    'tokenType' => 'trc20',
+    'from_address' => 'TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM',
+    'amount_str' => '46662914',
+    'status' => 0,
+  ),
+  'contract_type' => 'trc20',
+  'trigger_info' => 
+  array (
+    'method' => 'transfer(address _to,uint256 _value)',
+    'parameter' => 
+    array (
+      '_value' => '46662914',
+      '_to' => 'TQVYB7ssuV1qVZum3b8Ph4qoms8GHue61A',
+    ),
+    'methodId' => 'a9059cbb',
+    'contract_address' => 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t',
+    'call_value' => 0,
+  ),
+  'signature_addresses' => 
+  array (
+  ),
+  'ownerAddress' => 'TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM',
+  'srConfirmList' => 
+  array (
+    0 => 
+    array (
+      'address' => 'TNeEwWHXLLUgEtfzTnYN8wtVenGxuMzZCE',
+      'name' => 'OKCoinJapan',
+      'block' => 62667098,
+      'url' => 'https://okcoin.jp/',
+    ),
+    1 => 
+    array (
+      'address' => 'TTxrh32VJveqiYRwbLEX2wLTMFCfbpAUQj',
+      'name' => 'OKX Earn',
+      'block' => 62667099,
+      'url' => 'https://www.okx.com/earn/home',
+    ),
+    2 => 
+    array (
+      'address' => 'TTcYhypP8m4phDhN6oRexz2174zAerjEWP',
+      'name' => 'CryptoGuyInZA',
+      'block' => 62667100,
+      'url' => 'https://www.cryptoguyinza.co.za/',
+    ),
+    3 => 
+    array (
+      'address' => 'TCEo1hMAdaJrQmvnGTCcGT2LqrGU4N7Jqf',
+      'name' => 'TRONScan',
+      'block' => 62667101,
+      'url' => 'https://tronscan.org',
+    ),
+    4 => 
+    array (
+      'address' => 'TBsyKdNsCKNXLgvneeUJ3rbXgWSgk6paTM',
+      'name' => 'StakedTron',
+      'block' => 62667102,
+      'url' => 'https://staked.us',
+    ),
+    5 => 
+    array (
+      'address' => 'TQhuVjZtmp6k4fPmGZLr4wyXdziCVSPkEX',
+      'name' => 'Google Cloud',
+      'block' => 62667103,
+      'url' => 'https://cloud.google.com/',
+    ),
+    6 => 
+    array (
+      'address' => 'TLyqzVGLV1srkB7dToTAEqgDSfPtXRJZYH',
+      'name' => 'Binance Staking',
+      'block' => 62667104,
+      'url' => 'https://www.binance.com/en/staking',
+    ),
+    7 => 
+    array (
+      'address' => 'TCZvvbn4SCVyNhCAt1L8Kp1qk5rtMiKdBB',
+      'name' => 'Crypto Labs',
+      'block' => 62667105,
+      'url' => 'CryptoLabs',
+    ),
+    8 => 
+    array (
+      'address' => 'TAAdjpNYfeJ2edcETNpad1QpQWJfyBdB9V',
+      'name' => 'Ant Investment Group',
+      'block' => 62667106,
+      'url' => 'antinvestmentgroup',
+    ),
+    9 => 
+    array (
+      'address' => 'TGyrSc9ZmTdbYziuk1SKEmdtCdETafewJ9',
+      'name' => 'Luganodes',
+      'block' => 62667107,
+      'url' => 'https://luganodes.com',
+    ),
+    10 => 
+    array (
+      'address' => 'TMafrJCuNoYq3mg9dDThfg7c9VP6enZN6j',
+      'name' => 'metaverse home',
+      'block' => 62667108,
+      'url' => 'metaversehome',
+    ),
+    11 => 
+    array (
+      'address' => 'TC6qGw3d6h25gjcM64KLuZn1cznNi5NR6t',
+      'name' => 'Crypto Innovation Fund',
+      'block' => 62667109,
+      'url' => 'cryptoinnovationfund',
+    ),
+    12 => 
+    array (
+      'address' => 'TJvaAeFb8Lykt9RQcVyyTFN2iDvGMuyD4M',
+      'name' => 'Poloniex',
+      'block' => 62667110,
+      'url' => 'https://poloniex.com/',
+    ),
+    13 => 
+    array (
+      'address' => 'TQ4bh4nQknQp33vuf1mUAKu5M5TWW8cTAD',
+      'name' => 'Intelligence Quant',
+      'block' => 62667111,
+      'url' => 'IntelligenceQuant',
+    ),
+    14 => 
+    array (
+      'address' => 'TNaJADoq1u2atryP1ZzwvmEE4ZBELXfMqw',
+      'name' => 'callmeSR',
+      'block' => 62667112,
+      'url' => 'http://zempty.peiwo.cn/',
+    ),
+    15 => 
+    array (
+      'address' => 'TN2W4cc7a4dsYyTLiLMWa9m7jVpdLjGvYs',
+      'name' => 'Huobi_Wallet',
+      'block' => 62667113,
+      'url' => 'https://www.huobiwallet.com/',
+    ),
+    16 => 
+    array (
+      'address' => 'TTW663tQYJTTCtHh6DWKAfexRhPMf2DxQ1',
+      'name' => 'TRONALLIANCE',
+      'block' => 62667114,
+      'url' => 'http://tronalliance.org',
+    ),
+    17 => 
+    array (
+      'address' => 'TDpt9adA6QidL1B1sy3D8NC717C6L5JxFo',
+      'name' => 'Chain Cloud',
+      'block' => 62667115,
+      'url' => 'chaincloud',
+    ),
+    18 => 
+    array (
+      'address' => 'TQopP5GM68QoqLzpz8YReDfSoCMkvwcZYd',
+      'name' => 'cryptoAI',
+      'block' => 62667116,
+      'url' => 'https://cryptoai.com',
+    ),
+  ),
+  'hash' => 'a0485c772b1f0b987b33be24f6e854b0161fe46e34ffb9da2cffeebb3606e9ad',
+  'contractData' => 
+  array (
+    'data' => 'a9059cbb0000000000000000000000009f4e3eb9ae86450bd2ec4be7c88004d215b47b090000000000000000000000000000000000000000000000000000000002c80502',
+    'owner_address' => 'TG6R4xxENjt8dFEH4URQ6uqrAJM44gvrZM',
+    'contract_address' => 'TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t',
+  ),
+  'internal_transactions' => 
+  array (
+  ),
+)  
+[2024-06-17 18:08:10] local.INFO: CRYPTO_KEY:Array
+(
+    [event_type] => expired
+    [retry_count] => 1
+    [data] => Array
+        (
+            [id] => 250216
+            [wallet] => THU8bPeATTffFc1P8kin5PfpqBtxCJ53Vk
+            [final_amount] => 1.012
+            [requested_amount] => 1
+            [status] => expired
+            [client_reference_id] => 4c77563b700922ed8116efbd602a1528d7d53d5f781a7297409ec6abc2622ea3
+            [metadata] => 255499895_1
+            [created_at] => 1718645856
+            [expire_at] => 1718647656
+        )
+
+)
+  
+[2024-06-17 18:08:12] local.INFO: array  
+[2024-06-17 18:08:25] local.INFO: CRYPTO_KEY:Array
+(
+    [event_type] => expired
+    [retry_count] => 2
+    [data] => Array
+        (
+            [id] => 250216
+            [wallet] => THU8bPeATTffFc1P8kin5PfpqBtxCJ53Vk
+            [final_amount] => 1.012
+            [requested_amount] => 1
+            [status] => expired
+            [client_reference_id] => 4c77563b700922ed8116efbd602a1528d7d53d5f781a7297409ec6abc2622ea3
+            [metadata] => 255499895_1
+            [created_at] => 1718645856
+            [expire_at] => 1718647656
+        )
+
+)
+  
+[2024-06-17 18:09:52] local.INFO: array  
+[2024-06-17 18:09:52] local.ERROR: Undefined array key "contract_address" {"exception":"[object] (ErrorException(code: 0): Undefined array key \"contract_address\" at /var/www/www-root/data/www/sevenme.es/app/Telegram/Handler.php:198)
+[stacktrace]
+#0 /var/www/www-root/data/www/sevenme.es/app/Telegram/Handler.php(198): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/www-root/data/www/sevenme.es/vendor/defstudio/telegraph/src/Handlers/WebhookHandler.php(131): App\\Telegram\\Handler->handleChatMessage()
+#2 /var/www/www-root/data/www/sevenme.es/vendor/defstudio/telegraph/src/Handlers/WebhookHandler.php(232): DefStudio\\Telegraph\\Handlers\\WebhookHandler->handleMessage()
+#3 /var/www/www-root/data/www/sevenme.es/vendor/defstudio/telegraph/src/Controllers/WebhookController.php(28): DefStudio\\Telegraph\\Handlers\\WebhookHandler->handle()
+#4 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(48): DefStudio\\Telegraph\\Controllers\\WebhookController->handle()
+#5 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Routing/Route.php(262): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#6 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Routing/Route.php(205): Illuminate\\Routing\\Route->runController()
+#7 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Routing/Router.php(721): Illuminate\\Routing\\Route->run()
+#8 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#9 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#10 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Routing/Router.php(723): Illuminate\\Pipeline\\Pipeline->then()
+#11 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Routing/Router.php(698): Illuminate\\Routing\\Router->runRouteWithinStack()
+#12 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Routing/Router.php(662): Illuminate\\Routing\\Router->runRoute()
+#13 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Routing/Router.php(651): Illuminate\\Routing\\Router->dispatchToRoute()
+#14 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(167): Illuminate\\Routing\\Router->dispatch()
+#15 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#16 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#17 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#18 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#19 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#20 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#21 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#22 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#23 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle()
+#24 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#25 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#26 /var/www/www-root/data/www/sevenme.es/vendor/fruitcake/laravel-cors/src/HandleCors.php(38): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#27 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fruitcake\\Cors\\HandleCors->handle()
+#28 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#29 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#30 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#31 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then()
+#32 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#33 /var/www/www-root/data/www/sevenme.es/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle()
+#34 {main}
+"} 
+[2024-06-17 18:10:34] local.ERROR: Undefined array key "contract_address" {"exception":"[object] (ErrorException(code: 0): Undefined array key \"contract_address\" at /var/www/www-root/data/www/sevenme.es/app/Telegram/Handler.php:198)
+[stacktrace]
+#0 /var/www/www-root/data/www/sevenme.es/app/Telegram/Handler.php(198): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError()
+#1 /var/www/www-root/data/www/sevenme.es/vendor/defstudio/telegraph/src/Handlers/WebhookHandler.php(131): App\\Telegram\\Handler->handleChatMessage()
+#2 /var/www/www-root/data/www/sevenme.es/vendor/defstudio/telegraph/src/Handlers/WebhookHandler.php(232): DefStudio\\Telegraph\\Handlers\\WebhookHandler->handleMessage()
+#3 /var/www/www-root/data/www/sevenme.es/vendor/defstudio/telegraph/src/Controllers/WebhookController.php(28): DefStudio\\Telegraph\\Handlers\\WebhookHandler->handle()
+#4 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(48): DefStudio\\Telegraph\\Controllers\\WebhookController->handle()
+#5 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Routing/Route.php(262): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#6 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Routing/Route.php(205): Illuminate\\Routing\\Route->runController()
+#7 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Routing/Router.php(721): Illuminate\\Routing\\Route->run()
+#8 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#9 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#10 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Routing/Router.php(723): Illuminate\\Pipeline\\Pipeline->then()
+#11 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Routing/Router.php(698): Illuminate\\Routing\\Router->runRouteWithinStack()
+#12 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Routing/Router.php(662): Illuminate\\Routing\\Router->runRoute()
+#13 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Routing/Router.php(651): Illuminate\\Routing\\Router->dispatchToRoute()
+#14 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(167): Illuminate\\Routing\\Router->dispatch()
+#15 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(128): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#16 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#17 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#18 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#19 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#20 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(40): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#21 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#22 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#23 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize->handle()
+#24 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(86): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#25 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#26 /var/www/www-root/data/www/sevenme.es/vendor/fruitcake/laravel-cors/src/HandleCors.php(38): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#27 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Fruitcake\\Cors\\HandleCors->handle()
+#28 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(39): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#29 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(167): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#30 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(103): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#31 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(142): Illuminate\\Pipeline\\Pipeline->then()
+#32 /var/www/www-root/data/www/sevenme.es/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(111): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#33 /var/www/www-root/data/www/sevenme.es/public/index.php(52): Illuminate\\Foundation\\Http\\Kernel->handle()
+#34 {main}
+"} 
+[2024-06-17 18:11:04] local.INFO: SUCCESS TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t  
+[2024-06-17 18:11:07] local.INFO: CRYPTO_KEY:Array
+(
+    [event_type] => expired
+    [retry_count] => 1
+    [data] => Array
+        (
+            [id] => 250219
+            [wallet] => THU8bPeATTffFc1P8kin5PfpqBtxCJ53Vk
+            [final_amount] => 1.013
+            [requested_amount] => 1
+            [status] => expired
+            [client_reference_id] => 91c07f61fa1a44a759be2ac5ded54f67f752e061b9e130539f325de3184c0cce
+            [metadata] => 255499895_1
+            [created_at] => 1718646058
+            [expire_at] => 1718647858
+        )
+
+)
+  
+[2024-06-17 18:11:21] local.INFO: CRYPTO_KEY:Array
+(
+    [event_type] => expired
+    [retry_count] => 2
+    [data] => Array
+        (
+            [id] => 250219
+            [wallet] => THU8bPeATTffFc1P8kin5PfpqBtxCJ53Vk
+            [final_amount] => 1.013
+            [requested_amount] => 1
+            [status] => expired
+            [client_reference_id] => 91c07f61fa1a44a759be2ac5ded54f67f752e061b9e130539f325de3184c0cce
+            [metadata] => 255499895_1
+            [created_at] => 1718646058
+            [expire_at] => 1718647858
+        )
+
+)
+  
+[2024-06-17 18:11:41] local.INFO: SUCCESS TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t  
+[2024-06-17 18:11:47] local.INFO: SUCCESS TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t  
+[2024-06-17 18:12:21] local.INFO: CRYPTO_KEY:Array
+(
+    [event_type] => expired
+    [retry_count] => 1
+    [data] => Array
+        (
+            [id] => 250222
+            [wallet] => THU8bPeATTffFc1P8kin5PfpqBtxCJ53Vk
+            [final_amount] => 1.014
+            [requested_amount] => 1
+            [status] => expired
+            [client_reference_id] => b687b13677d04cb74091290d4a1ecdd813f2b3a6e137673e91ed2c7fc243b42d
+            [metadata] => 255499895_1
+            [created_at] => 1718646133
+            [expire_at] => 1718647933
+        )
+
+)
+  
+[2024-06-17 18:12:32] local.INFO: THU8bPeATTffFc1P8kin5PfpqBtxCJ53Vk  

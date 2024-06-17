@@ -1,0 +1,132 @@
+@import url('normalize.css');
+
+:root {
+    --light-color: #FFF;
+    --highlights-color: #5C5CFF;
+    --radio-button-color: #33DFE1;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    overflow: hidden;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+
+    font-family: 'Play', sans-serif;
+
+    background-color: var(--highlights-color);
+    color: var(--light-color);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 30px;
+}
+
+label {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+h3 {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+}
+
+.title img {
+    width: 75px;
+}
+
+.productname {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 0px 15px 0px;
+}
+
+.email {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.email input {
+    padding: 5px 15px;
+
+    outline: none;
+    border: none;
+    border-radius: 15px;
+}
+
+.currency {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.radios {
+    width: 187px;
+    display: flex;
+    padding: 5px 0;
+
+    background-color: var(--light-color);
+    border-radius: 15px;
+
+    gap: 10px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]+span {
+    color: var(--highlights-color);
+    border-radius: 15px;
+    padding: 5px 10px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+}
+
+input[type="radio"]:checked+span {
+    color: var(--light-color);
+    background-color: var(--radio-button-color);
+}
+
+
+button {
+    padding: 5px;
+
+    background-color: var(--highlights-color);
+    border: 1px solid var(--light-color);
+    border-radius: 15px;
+    color: var(--light-color)
+}
+
+button:hover {
+    cursor: pointer;
+}

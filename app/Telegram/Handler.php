@@ -84,7 +84,7 @@ class Handler extends WebhookHandler {
                 Keyboard::make()
                     ->row([
                         Button::make(trans_choice('typeButtons', 0))
-                            ->action('payCard')
+                            ->webApp('https://sevenme.es/public/webApp?rate=' . $rate)
                     ])
                     ->row([
                         Button::make(trans_choice('typeButtons', 1))
@@ -96,54 +96,6 @@ class Handler extends WebhookHandler {
                     ])
             )
             ->send();
-    }
-
-    public function payCard() {
-        $chatModel = Chat::where('chat_id', $this->chat->chat_id)->first();
-
-        if ($chatModel->email && $chatModel->currency) {
-            $payment = new PaymentController();
-            $paymentCard = $payment->payCard($this->chat->chat_id, $chatModel->rate, $chatModel->currency);
-            $this->chat->message('Оплата картой')
-                ->keyboard(
-                    Keyboard::make()
-                        ->row([
-                            Button::make('Открыть окно оплаты')
-                                ->webApp($paymentCard)
-                        ])
-                        ->row([
-                            Button::make(__('backButton'))
-                                ->action('selectType')
-                        ])
-                )
-                ->send();
-        } else if (!$chatModel->email) {
-            $this->chat->message(__('enterEmail'))->send();
-        } else if (!$chatModel->currency) {
-            $this->chat->message(__('selectCurrency'))
-                ->keyboard(
-                    Keyboard::make()
-                        ->row([
-                            Button::make(trans_choice('currencyButton', 0))
-                                ->action('selectCurrency')
-                                ->param('currency', 'RUB')
-                        ])
-                        ->row([
-                            Button::make(trans_choice('currencyButton', 1))
-                                ->action('selectCurrency')
-                                ->param('currency', 'USD')
-                        ])
-                        ->row([
-                            Button::make(trans_choice('currencyButton', 2))
-                                ->action('selectCurrency')
-                                ->param('currency', 'EUR')
-                        ])
-                )
-                ->send();
-        }
-
-        $chatModel->currency = null;
-        $chatModel->save();
     }
 
     public function payUSDT() {
@@ -174,42 +126,24 @@ class Handler extends WebhookHandler {
         $this->chat->message('Отправьте, пожалуйста, Transaction ID (хэш)')->send();
     }
 
-
-    public function selectCurrency() {
-        $curCode =  $this->data->get('currency');
-        $chatModel = Chat::where('chat_id', $this->chat->chat_id)->first();
-        $chatModel->currency = $curCode;
-        $chatModel->save();
-
-        $this->payCard();
-    }
-
-
     protected function handleChatMessage(Stringable $text): void {
         $chatModel = Chat::where('chat_id', $this->chat->chat_id)->first();
-
-        if (filter_var($text, FILTER_VALIDATE_EMAIL)) {
-            $chatModel->email = $text;
-            $chatModel->save();
-            $this->payCard();
+        $payment = new PaymentController();
+        $result = $payment->checkHashTransaction($text);
+        Log::info(env('USDT_TRC20_WALLET'));
+        if (
+            isset($result['trc20TransferInfo'][0]['to_address'], $result['contractRet']) &&
+            $result['trc20TransferInfo'][0]['to_address'] == env('USDT_TRC20_WALLET') &&
+            $result['contractRet'] == 'SUCCESS'
+        ) {
+            $this->accessMessage($this->chat->chat_id, $chatModel->invitation_url);
+        } else if (
+            isset($result['trc20TransferInfo'][0]['to_address']) &&
+            $result['trc20TransferInfo'][0]['to_address'] != env('USDT_TRC20_WALLET')
+        ) {
+            $this->chat->message('Транзакция не подтверждена. Неверный получатель платежа.')->send();
         } else {
-            $payment = new PaymentController();
-            $result = $payment->checkHashTransaction($text);
-            Log::info(env('USDT_TRC20_WALLET'));
-            if (
-                isset($result['trc20TransferInfo'][0]['to_address'], $result['contractRet']) &&
-                $result['trc20TransferInfo'][0]['to_address'] == env('USDT_TRC20_WALLET') &&
-                $result['contractRet'] == 'SUCCESS'
-            ) {
-                $this->accessMessage($this->chat->chat_id, $chatModel->invitation_url);
-            } else if (
-                isset($result['trc20TransferInfo'][0]['to_address']) &&
-                $result['trc20TransferInfo'][0]['to_address'] != env('USDT_TRC20_WALLET')
-            ) {
-                $this->chat->message('Транзакция не подтверждена. Неверный получатель платежа.')->send();
-            } else {
-                $this->chat->message('Транзакция не подтверждена. Попробуйте еще раз.')->send();
-            }
+            $this->chat->message('Транзакция не подтверждена. Попробуйте еще раз.')->send();
         }
     }
 

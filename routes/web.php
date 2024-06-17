@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\WebAppController;
 use DefStudio\Telegraph\Facades\Telegraph;
 use Illuminate\Support\Facades\Route;
 
@@ -31,3 +32,6 @@ Route::get('/', function () {
 Route::post('/webhook/crypto', [PaymentController::class, 'responseCrypto']);
 
 Route::post('/webhook/lava', [PaymentController::class, 'responseLava']);
+
+Route::get('/webApp', [WebAppController::class, 'index']);
+Route::get('/wepApp/pay', [WebAppController::class, 'pay']);

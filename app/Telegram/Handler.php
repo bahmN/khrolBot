@@ -8,14 +8,14 @@ use DefStudio\Telegraph\Handlers\WebhookHandler;
 use DefStudio\Telegraph\Keyboard\Button;
 use DefStudio\Telegraph\Keyboard\Keyboard;
 use DefStudio\Telegraph\Models\TelegraphChat;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Stringable;
 
 class Handler extends WebhookHandler {
     public function start() {
         if (!empty($this->message)) {
-            $this->chat->deleteMessage($this->message->id())->send();
-            $this->chat->message(__('greeting'))
+            $chat = TelegraphChat::find($this->message->chat()->id());
+            $chat->deleteMessage($this->message->id())->send();
+            $chat->message(__('greeting'))
                 ->keyboard(
                     Keyboard::make()
                         ->row([

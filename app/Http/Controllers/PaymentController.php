@@ -20,7 +20,7 @@ class PaymentController extends Controller {
             $cost = 150;
         }
         $body = array(
-            'amount' => number_format(1, 2, '.', ''), // Сумма инвойса
+            'amount' => number_format($cost, 2, '.', ''), // Сумма инвойса
             'client_reference_id' => $clientReferenceId, // Уникальный идентификатор транзакции
             'widget_description' => $description, // Описание инвойса
             'metadata' => $chatId . '_' . $period,

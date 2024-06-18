@@ -32,34 +32,28 @@ class PaymentController extends Controller {
             'private-key: ' . env('CRYPTOSCAN_PRIVATE_KEY'),
         );
 
-        $this->generateInviteLink($chatId);
-
         return $this->sendRequest('https://cryptoscan.one/api/v1/invoice/widget', json_encode($body), $headers)['data']['widget_url'];
     }
 
-    public function payCard($chatId, $period, $currencyCode) {
-        if ($period == 1) {
-            $offerId = '16118021-2624-4e31-b2d3-b065a1568277';
-        } else if ($period == 6) {
-            $offerId = '6e9744e2-ce6a-49ee-9ff4-ed9145b2422e';
-        } else if ($period = 12) {
-            $offerId = '74eb4a34-a74e-4196-a96e-ad0a3366ae95';
-        }
-        $chatModel = Chat::where('chat_id', $chatId)->first();
+    public function payCard($email, $period, $currencyCode) {
+        $offerId = array(
+            '1' => 'bf624197-53c0-4bb9-aa30-7d79cbbd072a',
+            '6' => '6e9744e2-ce6a-49ee-9ff4-ed9145b2422e',
+            '12' => '74eb4a34-a74e-4196-a96e-ad0a3366ae95'
+        );
+
         $headers = array(
             'accept: application/json',
             'X-Api-Key:' . env('LAVA_TOKEN'),
             'Content-Type: application/json'
         );
         $body = array(
-            'email' => $chatModel->email,
-            'offerId' => $offerId,
+            'email' => $email,
+            'offerId' => $offerId[$period],
             'currency' => $currencyCode,
             'buyerLanguage' => 'RU'
 
         );
-
-        $this->generateInviteLink($chatId);
 
         return $this->sendRequest('https://gate.lava.top/api/v2/invoice', json_encode($body), $headers)['paymentUrl'];
     }
@@ -101,8 +95,10 @@ class PaymentController extends Controller {
             $chatModel->valid_until = $date->format('Y-m-d H:i:s');
             $chatModel->save();
 
+            $this->generateInviteLink($chatModel->chat_id);
+
             $tgHandler = new Handler();
-            $tgHandler->accessMessage($chatId, $chatModel->invitation_url);
+            $tgHandler->rules($chatModel->chat_id);
 
             return response('Success', 200)->header('Content-Type', 'text/plain');
         }
@@ -112,25 +108,25 @@ class PaymentController extends Controller {
         Log::info('LAVA_KEY:' . print_r($request->all(), true));
         $webhookData = $request->all();
 
-        if ($webhookData['status'] == 'completed') {
+        if ($webhookData['status'] == 'completed' || $webhookData['status'] == 'subscription-active') {
             $date = new DateTime(date("Y-m-d H:i:s"));
 
             if (
-                $webhookData['currency'] == 'RUB' && $webhookData['amount'] == 1335.99 ||
-                $webhookData['currency'] == 'USD' && $webhookData['amount'] == 15 ||
-                $webhookData['currency'] == 'EUR' && $webhookData['amount'] == 14.04
+                $webhookData['currency'] == 'RUB' && $webhookData['amount'] == 1500.00 ||
+                $webhookData['currency'] == 'USD' && $webhookData['amount'] == 15.00 ||
+                $webhookData['currency'] == 'EUR' && $webhookData['amount'] == 14.00
             ) {
                 $date->modify('+1 month');
             } else if (
-                $webhookData['currency'] == 'RUB' && $webhookData['amount'] == 6679.94 ||
-                $webhookData['currency'] == 'USD' && $webhookData['amount'] == 75 ||
-                $webhookData['currency'] == 'EUR' && $webhookData['amount'] == 70.20
+                $webhookData['currency'] == 'RUB' && $webhookData['amount'] == 7500.00 ||
+                $webhookData['currency'] == 'USD' && $webhookData['amount'] == 75.00 ||
+                $webhookData['currency'] == 'EUR' && $webhookData['amount'] == 70.00
             ) {
                 $date->modify('+6 month');
             } else if (
-                $webhookData['currency'] == 'RUB' && $webhookData['amount'] == 13359.87 ||
-                $webhookData['currency'] == 'USD' && $webhookData['amount'] == 150 ||
-                $webhookData['currency'] == 'EUR' && $webhookData['amount'] == 140.40
+                $webhookData['currency'] == 'RUB' && $webhookData['amount'] == 15000.00 ||
+                $webhookData['currency'] == 'USD' && $webhookData['amount'] == 150.00 ||
+                $webhookData['currency'] == 'EUR' && $webhookData['amount'] == 140.00
             ) {
                 $date->modify('+12 month');
             }
@@ -138,18 +134,46 @@ class PaymentController extends Controller {
             $chatModel = Chat::where('email', $webhookData['buyer']['email'])->first();
             $chatModel->is_banned = 0;
             $chatModel->valid_until = $date->format('Y-m-d H:i:s');
+            if ($webhookData['status'] == 'subscription-active') {
+                $chatModel->contract_id = $webhookData['contractId'];
+            } else {
+                $chatModel->contract_id = null;
+            }
+
             $chatModel->save();
 
+            $this->generateInviteLink($chatModel->chat_id);
+
             $tgHandler = new Handler();
-            $tgHandler->accessMessage($chatModel->chat_id, $chatModel->invitation_url);
+            $tgHandler->rules($chatModel->chat_id);
 
             return response('Success', 200)->header('Content-Type', 'text/plain');
         }
     }
 
     public function checkHashTransaction($id) {
-        $result = $this->sendRequest("https://apilist.tronscanapi.com/api/transaction-info?hash=" . "$id", null, null, false);
-        return $result;
+        return $this->sendRequest("https://apilist.tronscanapi.com/api/transaction-info?hash=$id", null, null, false);
+    }
+
+    public function unsubscribe($chatId) {
+        $headers = array(
+            'accept: */*',
+            'X-Api-Key:' . env('LAVA_TOKEN'),
+        );
+
+        $chatModel = Chat::where('chat_id', $chatId)->first();
+
+        $ch = curl_init('https://gate.lava.top/api/v1/subscriptions?contractId=' . $chatModel->contract_id . '&email=' . $chatModel->email);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        $result = curl_exec($ch);
+        curl_close($ch);
+
+        Log::info('LAVA_DELETE:' . print_r($result, true));
+
+        $chatModel->contract_id = null;
+        $chatModel->save();
     }
 
     private function sendRequest($url, $data = null, $headers = null, $isPost = true) {

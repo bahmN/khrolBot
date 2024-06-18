@@ -14,11 +14,11 @@ class Kernel extends ConsoleKernel {
      * @return void
      */
     protected function schedule(Schedule $schedule) {
-        // $schedule->call(function () {
-        //     $chatId = 255499895;
-        //     $tgHandler = new Handler();
-        //     $tgHandler->notification($chatId);
-        // })->everyMinute();
+        $schedule->call(function () {
+            $chatId = 255499895;
+            $tgHandler = new Handler();
+            $tgHandler->notification($chatId);
+        })->monthly();
     }
 
     /**

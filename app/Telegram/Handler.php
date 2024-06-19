@@ -136,9 +136,8 @@ class Handler extends WebhookHandler {
     }
 
     protected function handleChatMessage(Stringable $text): void {
-        $chatModel = Chat::where('chat_id', $this->chat->chat_id)->first();
         $payment = new PaymentController();
-        $result = $payment->checkHashTransaction($text);
+        $result = $payment->checkHashTransaction($this->chat->chat_id, $text);
 
         if (
             isset($result['trc20TransferInfo'][0]['to_address'], $result['contractRet']) &&

@@ -41,7 +41,6 @@ class PaymentController extends Controller {
             '6' => '6e9744e2-ce6a-49ee-9ff4-ed9145b2422e',
             '12' => '74eb4a34-a74e-4196-a96e-ad0a3366ae95'
         );
-
         $headers = array(
             'accept: application/json',
             'X-Api-Key:' . env('LAVA_TOKEN'),
@@ -52,7 +51,6 @@ class PaymentController extends Controller {
             'offerId' => $offerId[$period],
             'currency' => $currencyCode,
             'buyerLanguage' => 'RU'
-
         );
 
         return $this->sendRequest('https://gate.lava.top/api/v2/invoice', json_encode($body), $headers)['paymentUrl'];
@@ -151,7 +149,9 @@ class PaymentController extends Controller {
         }
     }
 
-    public function checkHashTransaction($id) {
+    public function checkHashTransaction($chatId, $id) {
+        $this->generateInviteLink($chatId);
+
         return $this->sendRequest("https://apilist.tronscanapi.com/api/transaction-info?hash=$id", null, null, false);
     }
 

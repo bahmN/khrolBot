@@ -3,7 +3,7 @@
 :root {
     --light-color: #FFF;
     --highlights-color: #5C5CFF;
-    --highlights-color-opacity: rgba(92, 92, 255, 0.5);
+    --highlights-color-opacity: rgba(92, 92, 255, 0.75);
     --radio-button-color: #33DFE1;
 }
 

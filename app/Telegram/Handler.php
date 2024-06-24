@@ -245,8 +245,29 @@ class Handler extends WebhookHandler {
             ->send();
     }
 
-    public function notification($chatId) {
+    public function notificationDaysToEnd($chatId, $daysToEnd) {
         $chat = TelegraphChat::find($chatId);
-        $chat->message('Скоро закончится подписка')->send();
+        $chat->message("⚠️Ваша подписка заканчивается через $daysToEnd дней. Скорее оплатите подписку, чтобы продлить доступ к каналу *СВОИ ЛЮДИ*!")
+            ->keyboard(
+                Keyboard::make()
+                    ->row([
+                        Button::make(trans_choice('greetingButtons', 0))
+                            ->action('selectRate'),
+                    ])
+            )
+            ->send();
+    }
+
+    public function accessLimit($chatId) {
+        $chat = TelegraphChat::find($chatId);
+        $chat->message("😔Ваша подписка к каналу *СВОИ ЛЮДИ* закончилась, доступ к каналу закрыт. Вы можете возобновить подписку, скорее оформляй👇")
+            ->keyboard(
+                Keyboard::make()
+                    ->row([
+                        Button::make(trans_choice('greetingButtons', 0))
+                            ->action('selectRate'),
+                    ])
+            )
+            ->send();
     }
 }

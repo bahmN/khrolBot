@@ -79,19 +79,42 @@ class PaymentController extends Controller {
         $period = explode('_', $webhookData['data']['metadata'])[1];
 
         if ($webhookData['event_type'] == 'paid' || $webhookData['event_type'] == 'paid_manually') {
-            $date = new DateTime(date("Y-m-d H:i:s"));
-            if ($period == 1) {
-                $date->modify('+1 month');
-            } else if ($period == 6) {
-                $date->modify('+6 month');
-            } else if ($period == 12) {
-                $date->modify('+12 month');
+            $chatModel = Chat::where('chat_id', $chatId)->first();
+
+            if ($chatModel->hash_checked == 0) {
+                if ($chatModel->valid_until) {
+                    if ($period == 1) {
+                        $updatedDate = date('Y-m-d', strtotime('+1 month', strtotime($chatModel->valid_until)));
+                    } else if ($period == 6) {
+                        $updatedDate = date('Y-m-d', strtotime('+6 month', strtotime($chatModel->valid_until)));
+                    } else if ($period == 12) {
+                        $updatedDate = date('Y-m-d', strtotime('+12 month', strtotime($chatModel->valid_until)));
+                    }
+                } else {
+                    $date = new DateTime(date("Y-m-d"));
+
+                    if ($period == 1) {
+                        $date->modify('+1 month');
+                    } else if ($period == 6) {
+                        $date->modify('+6 month');
+                    } else if ($period == 12) {
+                        $date->modify('+12 month');
+                    }
+                }
             }
 
-            $chatModel = Chat::where('chat_id', $chatId)->first();
             $chatModel->is_banned = 0;
-            $chatModel->valid_until = $date->format('Y-m-d H:i:s');
+            $chatModel->hash_checked = 0;
+            isset($date) ? $chatModel->valid_until = $date->format('Y-m-d') : $chatModel->valid_until = $updatedDate;
             $chatModel->save();
+
+            $telegramToken = env('TELEGRAM_TOKEN');
+            $data = http_build_query([
+                'user_id' => $chatModel->chat_id,
+                'chat_id' => '-1002215378896',
+            ]);
+
+            $this->sendRequest("https://api.telegram.org/bot$telegramToken/unbanchatmember", $data);
 
             $this->generateInviteLink($chatModel->chat_id);
 
@@ -107,31 +130,53 @@ class PaymentController extends Controller {
         $webhookData = $request->all();
 
         if ($webhookData['status'] == 'completed' || $webhookData['status'] == 'subscription-active') {
-            $date = new DateTime(date("Y-m-d H:i:s"));
+            $chatModel = Chat::where('email', $webhookData['buyer']['email'])->first();
 
-            if (
-                $webhookData['currency'] == 'RUB' && $webhookData['amount'] == 1500.00 ||
-                $webhookData['currency'] == 'USD' && $webhookData['amount'] == 15.00 ||
-                $webhookData['currency'] == 'EUR' && $webhookData['amount'] == 14.00
-            ) {
-                $date->modify('+1 month');
-            } else if (
-                $webhookData['currency'] == 'RUB' && $webhookData['amount'] == 7500.00 ||
-                $webhookData['currency'] == 'USD' && $webhookData['amount'] == 75.00 ||
-                $webhookData['currency'] == 'EUR' && $webhookData['amount'] == 70.00
-            ) {
-                $date->modify('+6 month');
-            } else if (
-                $webhookData['currency'] == 'RUB' && $webhookData['amount'] == 15000.00 ||
-                $webhookData['currency'] == 'USD' && $webhookData['amount'] == 150.00 ||
-                $webhookData['currency'] == 'EUR' && $webhookData['amount'] == 140.00
-            ) {
-                $date->modify('+12 month');
+            if ($chatModel->valid_until) {
+                if (
+                    $webhookData['currency'] == 'RUB' && $webhookData['amount'] == 1500.00 ||
+                    $webhookData['currency'] == 'USD' && $webhookData['amount'] == 15.00 ||
+                    $webhookData['currency'] == 'EUR' && $webhookData['amount'] == 14.00
+                ) {
+                    $updatedDate = date('Y-m-d', strtotime('+1 month', strtotime($chatModel->valid_until)));
+                } else if (
+                    $webhookData['currency'] == 'RUB' && $webhookData['amount'] == 7500.00 ||
+                    $webhookData['currency'] == 'USD' && $webhookData['amount'] == 75.00 ||
+                    $webhookData['currency'] == 'EUR' && $webhookData['amount'] == 70.00
+                ) {
+                    $updatedDate = date('Y-m-d', strtotime('+6 month', strtotime($chatModel->valid_until)));
+                } else if (
+                    $webhookData['currency'] == 'RUB' && $webhookData['amount'] == 15000.00 ||
+                    $webhookData['currency'] == 'USD' && $webhookData['amount'] == 150.00 ||
+                    $webhookData['currency'] == 'EUR' && $webhookData['amount'] == 140.00
+                ) {
+                    $updatedDate = date('Y-m-d', strtotime('+12 month', strtotime($chatModel->valid_until)));
+                }
+            } else {
+                $date = new DateTime(date("Y-m-d"));
+                if (
+                    $webhookData['currency'] == 'RUB' && $webhookData['amount'] == 1500.00 ||
+                    $webhookData['currency'] == 'USD' && $webhookData['amount'] == 15.00 ||
+                    $webhookData['currency'] == 'EUR' && $webhookData['amount'] == 14.00
+                ) {
+                    $date->modify('+1 month');
+                } else if (
+                    $webhookData['currency'] == 'RUB' && $webhookData['amount'] == 7500.00 ||
+                    $webhookData['currency'] == 'USD' && $webhookData['amount'] == 75.00 ||
+                    $webhookData['currency'] == 'EUR' && $webhookData['amount'] == 70.00
+                ) {
+                    $date->modify('+6 month');
+                } else if (
+                    $webhookData['currency'] == 'RUB' && $webhookData['amount'] == 15000.00 ||
+                    $webhookData['currency'] == 'USD' && $webhookData['amount'] == 150.00 ||
+                    $webhookData['currency'] == 'EUR' && $webhookData['amount'] == 140.00
+                ) {
+                    $date->modify('+12 month');
+                }
             }
 
-            $chatModel = Chat::where('email', $webhookData['buyer']['email'])->first();
             $chatModel->is_banned = 0;
-            $chatModel->valid_until = $date->format('Y-m-d H:i:s');
+            isset($date) ? $chatModel->valid_until = $date->format('Y-m-d') : $chatModel->valid_until = $updatedDate;
             if ($webhookData['status'] == 'subscription-active') {
                 $chatModel->contract_id = $webhookData['contractId'];
             } else {
@@ -139,6 +184,14 @@ class PaymentController extends Controller {
             }
 
             $chatModel->save();
+
+            $telegramToken = env('TELEGRAM_TOKEN');
+            $data = http_build_query([
+                'user_id' => $chatModel->chat_id,
+                'chat_id' => '-1002215378896',
+            ]);
+
+            $this->sendRequest("https://api.telegram.org/bot$telegramToken/unbanchatmember", $data);
 
             $this->generateInviteLink($chatModel->chat_id);
 
@@ -150,9 +203,48 @@ class PaymentController extends Controller {
     }
 
     public function checkHashTransaction($chatId, $id) {
-        $this->generateInviteLink($chatId);
+        $response = $this->sendRequest("https://apilist.tronscanapi.com/api/transaction-info?hash=$id", null, null, false);
 
-        return $this->sendRequest("https://apilist.tronscanapi.com/api/transaction-info?hash=$id", null, null, false);
+        if (
+            isset($response['trc20TransferInfo'][0]['to_address'], $response['contractRet']) &&
+            $response['trc20TransferInfo'][0]['to_address'] == env('USDT_TRC20_WALLET') &&
+            $response['contractRet'] == 'SUCCESS'
+        ) {
+            $checkAmount = $response['trc20TransferInfo'][0]['amount_str'];
+            $checkAmount = mb_substr($checkAmount, 0, 2);
+
+            $chatModel = Chat::where('chat_id', $chatId)->first();
+
+            if ($chatModel->valid_until) {
+                if ($checkAmount == 15) {
+                    $updatedDate = date('Y-m-d', strtotime('+1 month', strtotime($chatModel->valid_until)));
+                } else if ($checkAmount == 75) {
+                    $updatedDate = date('Y-m-d', strtotime('+6 month', strtotime($chatModel->valid_until)));
+                } else if ($checkAmount == 150) {
+                    $updatedDate = date('Y-m-d', strtotime('+12 month', strtotime($chatModel->valid_until)));
+                }
+            } else {
+                $date = new DateTime(date("Y-m-d"));
+
+                if ($checkAmount == 15) {
+                    $date->modify('+1 month');
+                } else if ($checkAmount == 75) {
+                    $date->modify('+6 month');
+                } else if ($checkAmount == 150) {
+                    $date->modify('+12 month');
+                }
+            }
+
+            $chatModel->is_banned = 0;
+            isset($date) ? $chatModel->valid_until = $date->format('Y-m-d') : $chatModel->valid_until = $updatedDate;
+            $chatModel->hash_checked = 1; //TODO: подумать над тем, что если опять будет просто перевод с кошелька без использования платежного виджета криптоскана
+            $chatModel->save();
+
+
+            $this->generateInviteLink($chatId);
+        }
+
+        return $response;
     }
 
     public function unsubscribe($chatId) {
@@ -176,7 +268,7 @@ class PaymentController extends Controller {
         $chatModel->save();
     }
 
-    private function sendRequest($url, $data = null, $headers = null, $isPost = true) {
+    public function sendRequest($url, $data = null, $headers = null, $isPost = true) {
         if ($isPost == true) {
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $url);

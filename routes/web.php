@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\WebAppController;
 use DefStudio\Telegraph\Facades\Telegraph;
@@ -30,8 +32,15 @@ Route::get('/', function () {
 
 
 Route::post('/webhook/crypto', [PaymentController::class, 'responseCrypto']);
-
 Route::post('/webhook/lava', [PaymentController::class, 'responseLava']);
 
 Route::get('/webApp', [WebAppController::class, 'index']);
 Route::get('/wepApp/pay', [WebAppController::class, 'pay']);
+
+Route::get('/auth', [AuthenticationController::class, 'index'])->name('login');
+Route::get('/auth/login', [AuthenticationController::class, 'login']);
+Route::get('/auth/register', [AuthenticationController::class, 'register']);
+Route::get('/auth/logout', [AuthenticationController::class, 'logout']);
+
+Route::get('/manager', [AdminController::class, 'index'])->middleware('auth')->name('manager');
+Route::post('/manager/saveUpdate', [AdminController::class, 'saveUpdatedText']);

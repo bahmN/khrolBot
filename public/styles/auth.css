@@ -1,0 +1,74 @@
+@import url('normalize.css');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 28px;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 24px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 25px 50px;
+
+    text-align: center;
+
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+input {
+    width: 330px;
+    padding: 5px;
+
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    text-align: start;
+
+    gap: 20px
+}
+
+button {
+    padding: 10px;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    color: white;
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+
+    transition: 0.3s ease-out;
+}
+
+button:hover {
+    cursor: pointer;
+
+    color: black;
+    background-color: gray;
+    border: 1px solid gray;
+}

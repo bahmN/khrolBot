@@ -1,0 +1,103 @@
+@import url('normalize.css');
+
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+header {
+    margin: 0 150px;
+
+    text-align: center;
+
+    border-radius: 10px 10px 0 0;
+    color: white;
+    background-color: black;
+}
+
+.note {
+    margin: 0 150px;
+    padding: 10px;
+
+    border: 1px solid black;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 150px;
+
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 0 0 10px 10px;
+
+    transition: 0.3s ease-out;
+}
+
+button:hover {
+    cursor: pointer;
+
+    color: black;
+    background-color: gray;
+    border: none;
+}
+
+.table {
+    width: 100%;
+
+    font-size: 16px;
+}
+
+tbody {
+    border: 1px solid black;
+}
+
+.table thead th {
+    padding: 5px;
+    background: black;
+    color: white;
+}
+
+.table tbody td {
+    text-align: left;
+    padding: 10px 15px;
+}
+
+.table tbody tr:nth-child(even) {
+    background: #E4E4E4;
+}
+
+
+textarea {
+    width: 125vh;
+    height: auto;
+    resize: none;
+
+    border: none;
+    background-color: transparent;
+
+    outline: none;
+}

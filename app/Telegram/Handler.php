@@ -4,6 +4,7 @@ namespace App\Telegram;
 
 use App\Http\Controllers\PaymentController;
 use App\Models\Chat;
+use App\Models\TextManager;
 use DefStudio\Telegraph\Handlers\WebhookHandler;
 use DefStudio\Telegraph\Keyboard\Button;
 use DefStudio\Telegraph\Keyboard\Keyboard;
@@ -15,37 +16,37 @@ class Handler extends WebhookHandler {
         if (!empty($this->message)) {
             $chat = TelegraphChat::find($this->message->chat()->id());
             $chat->deleteMessage($this->message->id())->send();
-            $chat->message(__('greeting'))
+            $chat->message($this->getText('greeting')[0])
                 ->keyboard(
                     Keyboard::make()
                         ->row([
-                            Button::make(trans_choice('greetingButtons', 0))
+                            Button::make($this->getText('greetingButtons')[0])
                                 ->action('selectRate'),
                         ])
                         ->row([
-                            Button::make(trans_choice('greetingButtons', 1))
+                            Button::make($this->getText('greetingButtons')[1])
                                 ->action('aboutMe'),
                         ])
                         ->row([
-                            Button::make(trans_choice('greetingButtons', 2))
+                            Button::make($this->getText('greetingButtons')[2])
                                 ->url('https://t.me/Victorez'),
                         ])
                 )
                 ->send();
         } else {
-            $this->chat->message(__('greeting'))
+            $this->chat->message($this->getText('greeting')[0])
                 ->keyboard(
                     Keyboard::make()
                         ->row([
-                            Button::make(trans_choice('greetingButtons', 0))
+                            Button::make($this->getText('greetingButtons')[0])
                                 ->action('selectRate'),
                         ])
                         ->row([
-                            Button::make(trans_choice('greetingButtons', 1))
+                            Button::make($this->getText('greetingButtons')[1])
                                 ->action('aboutMe'),
                         ])
                         ->row([
-                            Button::make(trans_choice('greetingButtons', 2))
+                            Button::make($this->getText('greetingButtons')[2])
                                 ->url('https://t.me/Victorez'),
                         ])
 
@@ -55,26 +56,26 @@ class Handler extends WebhookHandler {
     }
 
     public function selectRate() {
-        $this->chat->message(__('rate'))
+        $this->chat->message($this->getText('rate')[0])
             ->keyboard(
                 Keyboard::make()
                     ->row([
-                        Button::make(trans_choice('rateButtons', 0))
+                        Button::make($this->getText('rateButtons')[0])
                             ->action('selectType')
                             ->param('rate', '1'),
                     ])
                     ->row([
-                        Button::make(trans_choice('rateButtons', 1))
+                        Button::make($this->getText('rateButtons')[1])
                             ->action('selectType')
                             ->param('rate', '6'),
                     ])
                     ->row([
-                        Button::make(trans_choice('rateButtons', 2))
+                        Button::make($this->getText('rateButtons')[2])
                             ->action('selectType')
                             ->param('rate', '12'),
                     ])
                     ->row([
-                        Button::make(__('backButton'))
+                        Button::make($this->getText('backButton')[0])
                             ->action(('start'))
                     ])
             )
@@ -88,19 +89,19 @@ class Handler extends WebhookHandler {
         $chatModel->rate = $rate;
         $chatModel->save();
 
-        $this->chat->message(__('type'))
+        $this->chat->message($this->getText('type')[0])
             ->keyboard(
                 Keyboard::make()
                     ->row([
-                        Button::make(trans_choice('typeButtons', 0))
+                        Button::make($this->getText('typeButtons')[0])
                             ->webApp('https://sevenme.es/public/webApp?rate=' . $rate . '&chat_id=' . $this->chat->chat_id)
                     ])
                     ->row([
-                        Button::make(trans_choice('typeButtons', 1))
+                        Button::make($this->getText('typeButtons')[1])
                             ->action('payUSDT')
                     ])
                     ->row([
-                        Button::make(__('backButton'))
+                        Button::make($this->getText('backButton')[0])
                             ->action('selectRate')
                     ])
             )
@@ -112,19 +113,19 @@ class Handler extends WebhookHandler {
         $payment = new PaymentController();
         $paymentUSDT = $payment->payUSDT($this->chat->chat_id, $chatModel->rate);
 
-        $this->chat->message(__('buyUSDT20'))
+        $this->chat->message($this->getText('buyUSDT20')[0])
             ->keyboard(
                 Keyboard::make()
                     ->row([
-                        Button::make(trans_choice('buyUSDT20Button', 0))
+                        Button::make($this->getText('buyUSDT20Button')[0])
                             ->webApp($paymentUSDT)
                     ])
                     ->row([
-                        Button::make(trans_choice('buyUSDT20Button', 1))
+                        Button::make($this->getText('buyUSDT20Button')[1])
                             ->action('checkUSDT')
                     ])
                     ->row([
-                        Button::make(__('backButton'))
+                        Button::make($this->getText('backButton')[0])
                             ->action('selectType')
                     ])
             )
@@ -132,7 +133,7 @@ class Handler extends WebhookHandler {
     }
 
     public function checkUSDT() {
-        $this->chat->message(__('hashTransaction'))->send();
+        $this->chat->message($this->getText('hashTransaction')[0])->send();
     }
 
     protected function handleChatMessage(Stringable $text): void {
@@ -149,18 +150,18 @@ class Handler extends WebhookHandler {
             isset($result['trc20TransferInfo'][0]['to_address']) &&
             $result['trc20TransferInfo'][0]['to_address'] != env('USDT_TRC20_WALLET')
         ) {
-            $this->chat->message(trans_choice('unconfirmed', 0))->send();
+            $this->chat->message($this->getText('unconfirmed')[0])->send();
         } else {
-            $this->chat->message(trans_choice('unconfirmed', 1))->send();
+            $this->chat->message($this->getText('unconfirmed')[1])->send();
         }
     }
 
     public function rules($chatId) {
-        TelegraphChat::find($chatId)->message(__('rules'))
+        TelegraphChat::find($chatId)->message($this->getText('rules')[0])
             ->keyboard(
                 Keyboard::make()
                     ->row([
-                        Button::make(__('rulesButton'))
+                        Button::make($this->getText('rulesButton')[0])
                             ->action('accessMessage')
                     ])
             )
@@ -170,11 +171,11 @@ class Handler extends WebhookHandler {
     public function accessMessage() {
         $chatModel = Chat::where('chat_id', $this->chat->chat_id)->first();
 
-        $this->chat->message(__('access'))
+        $this->chat->message($this->getText('access')[0])
             ->keyboard(
                 Keyboard::make()
                     ->row([
-                        Button::make(__('accessButton'))
+                        Button::make($this->getText('accessButton')[0])
                             ->url($chatModel->invitation_url)
                     ])
             )
@@ -187,19 +188,19 @@ class Handler extends WebhookHandler {
 
     public function menu() {
         sleep(2);
-        $this->chat->message(__('menu'))
+        $this->chat->message($this->getText('menu')[0])
             ->keyboard(
                 Keyboard::make()
                     ->row([
-                        Button::make(__('unsubscribeButton'))
+                        Button::make($this->getText('unsubscribeButton')[0])
                             ->action('unsubscribe')
                     ])
                     ->row([
-                        Button::make(__('returnToSubscriptionButton'))
+                        Button::make($this->getText('returnToSubscriptionButton')[0])
                             ->action('selectRate')
                     ])
                     ->row([
-                        Button::make(trans_choice('greetingButtons', 2))
+                        Button::make($this->getText('greetingButtons')[2])
                             ->url('https://t.me/Victorez'),
                     ])
             )
@@ -207,15 +208,15 @@ class Handler extends WebhookHandler {
     }
 
     public function unsubscribe() {
-        $this->chat->message(__('confirm'))
+        $this->chat->message($this->getText('confirm')[0])
             ->keyboard(
                 Keyboard::make()
                     ->row([
-                        Button::make(trans_choice('confirmButton', 0))
+                        Button::make($this->getText('confirmButton')[0])
                             ->action('unsubscribeNotification')
                     ])
                     ->row([
-                        Button::make(trans_choice('confirmButton', 1))
+                        Button::make($this->getText('confirmButton')[1])
                             ->action('menu')
                     ])
             )
@@ -225,20 +226,20 @@ class Handler extends WebhookHandler {
     public function unsubscribeNotification() {
         $payment = new PaymentController();
         $payment->unsubscribe($this->chat->chat_id);
-        $this->chat->message(__('unsubscribeNotification'))->send();
+        $this->chat->message($this->getText('unsubscribeNotification')[0])->send();
         $this->menu();
     }
 
     public function aboutMe() {
-        $this->chat->message(__('aboutMe'))
+        $this->chat->message($this->getText('aboutMe')[0])
             ->keyboard(
                 Keyboard::make()
                     ->row([
-                        Button::make(trans_choice('greetingButtons', 0))
+                        Button::make($this->getText('greetingButtons')[0])
                             ->action('selectRate'),
                     ])
                     ->row([
-                        Button::make(__('backButton'))
+                        Button::make($this->getText('backButton')[0])
                             ->action('start')
                     ])
             )
@@ -251,7 +252,7 @@ class Handler extends WebhookHandler {
             ->keyboard(
                 Keyboard::make()
                     ->row([
-                        Button::make(trans_choice('greetingButtons', 0))
+                        Button::make($this->getText('greetingButtons')[0])
                             ->action('selectRate'),
                     ])
             )
@@ -260,14 +261,22 @@ class Handler extends WebhookHandler {
 
     public function accessLimit($chatId) {
         $chat = TelegraphChat::find($chatId);
-        $chat->message("😔Ваша подписка к каналу *СВОИ ЛЮДИ* закончилась, доступ к каналу закрыт. Вы можете возобновить подписку, скорее оформляй👇")
+        $chat->message($this->getText('accessClosed')[0])
             ->keyboard(
                 Keyboard::make()
                     ->row([
-                        Button::make(trans_choice('greetingButtons', 0))
+                        Button::make($this->getText('greetingButtons')[0])
                             ->action('selectRate'),
                     ])
             )
             ->send();
+    }
+
+    private function getText($chapter): array {
+        $textModel = TextManager::where('chapter', $chapter)->first()->toArray();
+
+        $textModel = json_decode($textModel['text'], JSON_UNESCAPED_UNICODE);
+
+        return $textModel;
     }
 }

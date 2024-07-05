@@ -216,21 +216,21 @@ class PaymentController extends Controller {
             $chatModel = Chat::where('chat_id', $chatId)->first();
 
             if ($chatModel->valid_until) {
-                if ($checkAmount == 15) {
+                if ($checkAmount >= 15 && $checkAmount <= 74) {
                     $updatedDate = date('Y-m-d', strtotime('+1 month', strtotime($chatModel->valid_until)));
-                } else if ($checkAmount == 75) {
+                } else if ($checkAmount >= 75 && $checkAmount <= 149) {
                     $updatedDate = date('Y-m-d', strtotime('+6 month', strtotime($chatModel->valid_until)));
-                } else if ($checkAmount == 150) {
+                } else if ($checkAmount >= 150) {
                     $updatedDate = date('Y-m-d', strtotime('+12 month', strtotime($chatModel->valid_until)));
                 }
             } else {
                 $date = new DateTime(date("Y-m-d"));
 
-                if ($checkAmount == 15) {
+                if ($checkAmount >= 15 && $checkAmount <= 74) {
                     $date->modify('+1 month');
-                } else if ($checkAmount == 75) {
+                } else if ($checkAmount >= 75 && $checkAmount <= 149) {
                     $date->modify('+6 month');
-                } else if ($checkAmount == 150) {
+                } else if ($checkAmount >= 150) {
                     $date->modify('+12 month');
                 }
             }
